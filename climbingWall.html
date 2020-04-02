@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="/Users/ttamnam/Desktop/virtualClimbingWall/paper-full.js"></script>
+
+<link rel="stylesheet" type="text/css" href="climbingWall.css">
+<!-- Define inlined PaperScript associate it with myCanvas -->
+<script type="text/paperscript" canvas="myCanvas">
+	// Create a Paper.js Path to draw a line into it:
+	var path = new Path();
+	// Give the stroke a color
+	path.strokeColor = 'red';
+	var start = new Point(100, 100);
+	// Move to start and draw a line from there
+	path.moveTo(start);
+	// Note the plus operator on Point objects.
+	// PaperScript does that for us, and much more!
+	path.lineTo(start + [ 100, -50 ]);
+
+	function generateHolds() {
+
+	}
+
+
+for(var x = 150; x < view.size.width - 50; x+= 300){
+		for(var y = 50; y < view.size.height -50; y+= 300){
+			new Path.Circle(new Point((x+Math.random()*100), (y+Math.random()*200)), (view.size.width*0.015+(Math.random()*70))).fillColor = "rgb(50,250,100)";
+		}
+	}
+
+function ScrollToBottom() {
+	window.scrollTo(0,document.body.scrollHeight);
+}
+
+function pageScroll() {
+    window.scrollBy(0,5);
+    scrolldelay = setTimeout(pageScroll,0);
+}
+
+function onMouseUp(event){
+	pageScroll();
+}
+
+
+
+
+
+// function onFrame(event) {
+	// ScrollToBottom()
+// }
+
+
+
+</script>
+</head>
+<body class="scrollingContainer" id="my_div">
+	<canvas id="myCanvas" resize></canvas>
+</body>
+<script type="text/javascript" src="/Users/ttamnam/Desktop/virtualClimbingWall/climbingWall.js"></script>
+</html
